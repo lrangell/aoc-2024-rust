@@ -1,5 +1,5 @@
 [package]
-name = "aoc-2024"
+name = "aoc2024"
 version = "0.1.0"
 edition = "2021"
 
@@ -7,3 +7,13 @@ edition = "2021"
 aoc-runner = "0.3.0"
 aoc-runner-derive = "0.3.0"
 winnow = "0.6.20"
+
+[profile.release]
+debug = true
+
+[dev-dependencies]
+criterion = { version = "2.7.2", package = "codspeed-criterion-compat" }
+
+[[bench]]
+name = "day1"
+harness = false
