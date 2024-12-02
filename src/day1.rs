@@ -17,7 +17,7 @@ fn parse_digits(input: &mut &str) -> PResult<(i32, i32)> {
 }
 
 #[aoc_generator(day1)]
-fn parse(input: &str) -> (Vec<i32>, Vec<i32>) {
+pub fn parse(input: &str) -> (Vec<i32>, Vec<i32>) {
     let mut input = input;
     let (mut left, mut right): (Vec<i32>, Vec<i32>) = (vec![], vec![]);
     while let Ok((l, r)) = parse_digits(&mut input) {
@@ -29,8 +29,8 @@ fn parse(input: &str) -> (Vec<i32>, Vec<i32>) {
 #[aoc(day1, part1)]
 pub fn part1(input: &(Vec<i32>, Vec<i32>)) -> i32 {
     let (mut left, mut right) = input.to_owned();
-    left.sort();
-    right.sort();
+    left.sort_unstable();
+    right.sort_unstable();
 
     left.iter()
         .zip(right.iter())
